@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+
+    <script src="js/jQuery.js"></script>
+    <script src="jquery-ui/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        $(function() {
+            $("#dateTwo").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <div class="form-row">
+                <div class="col-sm">
+                    <h1 style="text-align:center">Ejemplo Electiva II</h1>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm">
+                    <label for="valueOne">Valor Uno</label>
+                    <input type="text" class="form-control" id="valueOne" onkeypress="return onlyNums(event)" required>
+                </div>
+                <div class="form-group col-sm">
+                    <label for="valueTwo">Valor Dos</label>
+                    <input type="text" class="form-control" id="valueTwo" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-sm">
+                    <label for="dateOne">Fecha Inicio</label>
+                    <input type="date" id="dateOne" class="form-control">
+                </div>
+
+                 <div class="form-group col-sm">
+                     <label for="dateTwo">Fecha Final</label>
+                     <input type="text" id="dateTwo" class="form-control">
+                 </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-sm">
+                    <label for="chain">Frase</label>
+                    <textarea id="chain" id="chain" class="form-control">
+                        "La formación en informática no puede convertir a nadie en experto programador, de la misma forma que estudiar pinceles y pigmentos puede hacer a alguien un experto pintor"
+-- Eric Raymond"
+
+                        No te preocupes si no funciona bien. Si todo estuviera correcto, serías despedido de tu trabajo"
+-- Ley de Mosher de la Ingeniería del Software
+
+                        "Pienso que Microsoft eligió el nombre .Net para que no pudiera ser mostrado en un listado de directorio de Unix"
+-- Oktal
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-sm">
+                    <label for="opt">Opcion</label>
+                    <select id="opt" class="form-control">
+                        <option>Seleccione Opción....</option>
+                        <option>Sumar</option>
+                        <option>Restar</option>
+                        <option>Multiplicar</option>
+                        <option>Dividir</option>
+                        <option>Potencia</option>
+                        <option>Maximo Comun Divisor</option>
+                        <option>N&uacute;meros Amigos</option>
+                        <option>N&uacute;meros Primos</option>
+                        <option>D&iacute;as entre Fechas</option>
+                        <option>Edad (Fecha Final)</option>
+                        <option>Nombre Propio</option>
+                        <option>Pal&iacute;ndromo</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-sm">
+                    <button type="submit" class="btn btn-primary form-control" onclick="begin()">Submit</button>
+                </div>
+
+                <div class="form-group col-sm">
+                    <button type="button" class="btn btn-danger form-control" id="btnHide">Ocultar</button>
+                </div>
+
+                <div class="form-group col-sm">
+                    <button type="button" class="btn btn-success form-control" id="btnView">Visualizar</button>
+                </div>
+            </div>
+        </form>
+        <br>
+        <p id="layout" style="background: pink">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, animi, ipsum. Sequi labore exercitationem eveniet inventore dolorum at aliquam facilis quod atque temporibus cupiditate laboriosam quisquam dolores, qui quis corrupti.
+        </p>
+
+        <div class="card">
+            <div class="card-header">
+                <h4>Descripci&oacute;n Taller <span class="badge badge-secondary">Javascript</span></h4>
+            </div>
+            <div class="card-body">
+                Implementar las opciones del Men&uacute; de Opciones, y visualizar los resultados en el &aacute;rea de visualizaci&oacute;n que se oculta y se visualiza as&iacute;:
+                <ol>
+                    <li>Sumar. Visualiza la suma de los valores de N&uacute;mero Uno y N&uacute;mero Dos </li>
+                    <li>Restar. Visualiza la suma de los valores de N&uacute;mero Uno y N&uacute;mero Dos (mayor - menor) </li>
+                    <li>Multiplicar. Visualiza el producto de los valores de N&uacute;mero Uno y N&uacute;mero Dos </li>
+                    <li>Dividir. Visualiza la divisi&oacute;n de los valores de N&uacute;mero Uno y N&uacute;mero Dos (mayor / menor) </li>
+                    <li>Potencia. Visualiza la potencia (criterio del estudiante para selección de base y potencia)</li>
+                    <li>M&aacute;ximo Com&uacute;n Divisor. Visualiza el Máximo común Divisor entre los dos n&uacute;meros</li>
+                    <li>N&uacute;meros Amigos. Visuaza si los dos N&uacute;meros son <a href="https://es.wikipedia.org/wiki/Números_amigos"> Amigos</a> o No</li>
+                    <li>N&uacute;meros Primos. Visualiza en una Tabla los N&uacute;meros Primos desde el menor hasta el mayor, visuaizando adem&aacute;s cuantos primos hay y cual es la suma</li>
+                    <li>Visualiza los días transcurridos entre la fecha inicia y la final</li>
+                    <li>Edad. Visualiza la edad en años entre la fecha final y la fecha actual</li>
+                    <li>Nombre Propio. Convierte el contenido de la cadena en "Nombre Propio" (Primer letra de cada Palabra en May&uacute;scula)</li>
+                    <li>P&aacute;lindromo. Visualiza si la palabra o frase en un Pal&iacute;ndromo</li>
+                </ol>
+                <div class="alert alert-primary" role="alert">
+                    Para cada opci&oacute;n se debe validar los aspectos de integridad de los datos:
+                    <ul>
+                        <li>Valores Inv&aacute;lidos</li>
+                        <li>Divisi&oacute;n por Cero</li>
+                        <li>Fecha Final Menor a la Inicial</li>
+                        <li>Dem&aacute;s que considere pertinentes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body></html>
